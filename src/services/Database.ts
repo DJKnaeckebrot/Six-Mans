@@ -92,6 +92,7 @@ export class Database {
         try {
 
             await backup(
+                // @ts-ignore
                 mikroORMConfig[process.env.NODE_ENV]!.dbName!, 
                 snapshotName + '.txt', 
                 objectsPath
@@ -128,9 +129,11 @@ export class Database {
         
         try {
 
+            // @ts-ignore
             console.debug(mikroORMConfig[process.env.NODE_ENV]!.dbName!)
             console.debug(`${backupPath}${snapshotName}`)
             await restore(
+                // @ts-ignore
                 mikroORMConfig[process.env.NODE_ENV]!.dbName!,
                 `${backupPath}${snapshotName}`,
             )
@@ -170,6 +173,7 @@ export class Database {
 
         if (this.isSQLiteDatabase()) {
 
+            // @ts-ignore
             const dbPath = mikroORMConfig[process.env.NODE_ENV]!.dbName!
             const dbSize = fs.statSync(dbPath).size
 

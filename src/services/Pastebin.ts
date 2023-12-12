@@ -30,7 +30,7 @@ export class Pastebin {
         const paste = await this.client.createPaste({ content })
 
         let pasteEntity = new PastebinEntity()
-        pasteEntity.id = paste.url
+        pasteEntity.pasteId = paste.url
         pasteEntity.editCode = paste.editCode
         if (lifetime) pasteEntity.lifetime = Math.floor(lifetime)
     
@@ -43,7 +43,7 @@ export class Pastebin {
 
         await this.waitForToken()
         
-        const paste = await this.db.get(PastebinEntity).findOne({ id })
+        const paste = await this.db.get(PastebinEntity).findOne({ pasteId: id })
 
         if (!paste) return
 
@@ -61,7 +61,7 @@ export class Pastebin {
             const diff = dayjs().diff(dayjs(paste.createdAt), 'day')
 
             if (diff >= paste.lifetime) {
-                await this.client.deletePaste(paste.id, paste.editCode)
+                await this.client.deletePaste(paste.pasteId, paste.editCode)
             }
         }
     }

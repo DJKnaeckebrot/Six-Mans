@@ -3,7 +3,7 @@ node_modules/
 
 # secrets
 .env
-.env.local
+.env
 
 # build
 build/
@@ -20,3 +20,8 @@ logs/
 
 # other
 tests/
+
+.idea/
+.vscode/
+
+.docker

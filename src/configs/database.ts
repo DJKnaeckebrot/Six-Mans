@@ -21,14 +21,15 @@ const envMikroORMConfig = {
         /**
          * SQLite
          */
-        type: 'better-sqlite', // or 'sqlite'
-        dbName: `${databaseConfig.path}db.sqlite`,
+        //type: 'better-sqlite', // or 'sqlite'
+        //dbName: `${databaseConfig.path}db.sqlite`,
 
         /**
          * MongoDB
          */
-        // type: 'mongo',
-        // clientUrl: process.env['DATABASE_HOST'],
+        type: 'mongo',
+        clientUrl: process.env['DATABASE_HOST'],
+        //dbName: process.env['DATABASE_NAME'],
 
         /**
          * PostgreSQL

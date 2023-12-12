@@ -1,4 +1,5 @@
-import { Entity, EntityRepositoryType, PrimaryKey, Property } from "@mikro-orm/core"
+import { Entity, EntityRepositoryType, PrimaryKey, Property, SerializedPrimaryKey } from '@mikro-orm/core'
+import { ObjectId } from '@mikro-orm/mongodb';
 import { EntityRepository } from "@mikro-orm/sqlite"
 
 // ===========================================
@@ -11,7 +12,10 @@ export class Stat {
     [EntityRepositoryType]?: StatRepository
 
     @PrimaryKey()
-    id: number
+    _id: ObjectId;
+
+    @SerializedPrimaryKey()
+    id!: string;
 
     @Property()
     type!: string

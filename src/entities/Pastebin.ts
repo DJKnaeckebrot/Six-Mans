@@ -10,8 +10,8 @@ export class Pastebin {
 
     [EntityRepositoryType]?: PastebinRepository
 
-    @PrimaryKey({ autoincrement: false })
-    id: string
+    @Property()
+    pasteId: string
 
     @Property()
     editCode: string

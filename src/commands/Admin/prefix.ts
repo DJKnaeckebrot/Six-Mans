@@ -36,7 +36,7 @@ export default class PrefixCommand {
 	) {
 
 		const guild = resolveGuild(interaction),
-			  guildData = await this.db.get(Guild).findOne({ id: guild?.id || '' })
+			  guildData = await this.db.get(Guild).findOne({ guildId: guild?.id || '' })
 
 		if (guildData) {
 
